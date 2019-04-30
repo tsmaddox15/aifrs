@@ -1,7 +1,9 @@
-# AIFRS #
+# AIFRS - Artificial Intelligent Flight Radar Simulator
+This README is a step-by-step guide for running the Spinning Up project and a partial working copy of a FrozenLake environment implementation.
 
 # Steps for getting spinningup to train
 - It's important to note, Ubuntu 18.0.4 was used for testing with ~100GB of virtual hard disk space.
+- For guidance on setting up an Ubuntu 18.0.4 Virtual Machine, see the end of the document titled "Setting up an Ubuntu VM on VirtualBox"
 
 ## First, run apt-get update to make sure everything is up-to-date
 sudo apt-get update
@@ -39,16 +41,13 @@ sudo apt-get update
 - Plot results with the following:
 	python -m spinup.run plot data/installtest/installtest_s0
 
-
-
-
 # Download Gym and get FrozenLake to run.
 - Gym is a toolkit for developing and comparing RL algorithms
 - We choose FrozenLake because it's close to our hunter-prey scenerio
 
 ## Clone the gym repository
 - Run the following to clone and install the Gym github repository
-	git clone https://EComte@bitbucket.org/gouph/aifrs.git
+	git clone https://github.com/tsmaddox15/aifrs.git
 	cd gym
 	pip install -e .
 		**Note:** The pip install isn't needed if previously performed above
@@ -67,3 +66,35 @@ sudo apt-get update
 - cd into gym/gym/envs (if not already)
 - run the following to run a simulation of frozen lakes:
 	python train-lakes.py
+
+# Setting up an Ubuntu VM on VirtualBox
+- Download VirtualBox for your specific operating system (https://www.virtualbox.org/wiki/Downloads)
+- Download the Ubuntu 18.04 iso file (https://www.ubuntu.com/download/desktop)
+- Once done downloading, open VirtualBox and select "New"
+- You can name the VM whatever, we just named it Ubuntu
+- Select the following:
+  - Type: Linux
+  - Version: Ubuntu (64-bit)
+- Select next
+- Select the amount of RAM used in the VM (We recommend the most possible in the green line. We used about 12k MB.)
+- Select next
+- Select "Create a virtual hard disk now"
+- Select VDI for the hard disk file type
+- Select "Fixed size" for the "Storage on physical hard disk"
+- Enter ~100GB. We found the whole installation and building took up about 15 GB, but the more the merrier and safer.
+- Select Create
+- The first time opening the VM, you will have to install Ubuntu; the steps are straight forward from there.
+
+# Useful links and notes
+- Towards the tail end of our research, we found this to be interesting and possibly helpful for learning how OpenAI works and all.
+  - https://www.youtube.com/watch?v=_pF1Un5zvp4
+  - https://github.com/kengz/openai_lab
+- We investigated the FrozenLake environment (https://gym.openai.com/envs/FrozenLake-v0/) because it's set up very similarly to the hunter/prey scenario we would like to emulate. We thought knowledge of this environment would help us with understanding how to set up a custom hunter/prey environment.
+- Some useful links we found relating to FrozenLake environment:
+  - https://medium.com/swlh/introduction-to-reinforcement-learning-coding-q-learning-part-3-9778366a41c0
+  - https://www.analyticsindiamag.com/openai-gym-frozen-lake-beginners-guide-reinforcement-learning/
+- The documentation from OpenAI on creating custom environments: https://github.com/openai/gym/blob/master/docs/creating-environments.md
+  - We were unsuccessful with this approach, but it may be helpful in the future.
+
+# Questions?
+- Email us at tsmaddox15@gmail.com or e.comte96@gmail.com
